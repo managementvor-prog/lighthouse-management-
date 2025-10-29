@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lighthouse Management | Premier Talent Agency</title>
+    <meta name="description" content="Luxury talent management representing Hollywood's elite actors, musicians, and influencers">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Lighthouse</h2>
+                <span>Management</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#talent" class="nav-link">Talent</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Representing <span class="highlight">Excellence</span> in Entertainment</h1>
+            <p class="hero-subtitle">Premier talent management for Hollywood's most distinguished actors, musicians, and cultural influencers</p>
+            <div class="hero-cta">
+                <a href="#talent" class="btn btn-primary">Explore Talent</a>
+                <a href="#contact" class="btn btn-secondary">Book Talent</a>
+            </div>
+        </div>
+        <div class="hero-background">
+            <div class="glass-morphism"></div>
+        </div>
+    </section>
+
+    <!-- Featured Talent -->
+    <section class="featured-talent">
+        <div class="container">
+            <h2 class="section-title">Featured Talent</h2>
+            <div class="talent-grid" id="featured-talent-grid">
+                <!-- Featured talent will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Talent Roster -->
+    <section id="talent" class="talent-roster">
+        <div class="container">
+            <h2 class="section-title">Our Talent Roster</h2>
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="acting">Acting</button>
+                <button class="filter-btn" data-filter="music">Music</button>
+                <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+            </div>
+            <div class="search-box">
+                <input type="text" id="talent-search" placeholder="Search talent by name...">
+            </div>
+            <div class="talent-grid" id="talent-grid">
+                <!-- All talent will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">Lighthouse Management</h2>
+                <p class="about-text">For over two decades, Lighthouse Management has been the guiding force behind some of the most influential careers in entertainment. Our boutique approach to talent representation combines industry expertise with personalized attention to every detail.</p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>50+</h3>
+                        <p>Industry Awards</p>
+                    </div>
+                    <div class="stat">
+                        <h3>100+</h3>
+                        <p>Major Projects</p>
+                    </div>
+                    <div class="stat">
+                        <h3>20+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Book Our Talent</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Ready to collaborate with world-class talent? Contact our team to discuss availability, rates, and project requirements.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <strong>Email:</strong> management.lighthousemanagement@gmail.com
+                        </div>
+                        <div class="contact-item">
+                            <strong>Phone:</strong> +1 (310) 555-LIGHT
+                        </div>
+                        <div class="contact-item">
+                            <strong>Location:</strong> Beverly Hills, CA
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="booking-form" action="https://formsubmit.co/managementvor@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New Talent Booking Request - Lighthouse Management">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://yourusername.github.io/lighthouse-management/thank-you.html">
+                        
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="company" placeholder="Company/Production">
+                        </div>
+                        <div class="form-group">
+                            <select name="talent_interest" id="talent-interest">
+                                <option value="">Select Talent (Optional)</option>
+                                <!-- Talent options will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="project_details" placeholder="Project or Meeting Details & Requirements" rows="5" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="timeline" placeholder="Project or Meeting Timeline">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Booking Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Lighthouse Management</h3>
+                    <p>Premier Talent Representation</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#talent">Talent</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lighthouse Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Talent Modal -->
+    <div id="talent-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-content">
+                <!-- Talent details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/config/settings.js"></script>
+    <script src="assets/js/utils/helpers.js"></script>
+    <script src="assets/js/components/modal.js"></script>
+    <script src="assets/js/services/talent.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

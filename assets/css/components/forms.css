@@ -1,0 +1,46 @@
+/* Enhanced form styles */
+.form-group {
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.form-hint {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    margin-top: 0.25rem;
+}
+
+.form-error {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.form-group.error .form-error {
+    display: block;
+}
+
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: #ff6b6b;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 400px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    min-width: 0;
+}
+
