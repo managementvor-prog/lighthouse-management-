@@ -1,97 +1,81 @@
 // assets/js/services/talent.js
-// Talent data management and filtering
-
 let currentFilter = 'all';
 let currentSearchTerm = '';
 
-// Initialize talent display
 function initializeTalentDisplay() {
-    displayFeaturedTalent();
-    displayAllTalent();
-    populateTalentSelect();
-    setupFiltering();
-    setupSearch();
+    setTimeout(() => {
+        displayFeaturedTalent();
+        displayAllTalent();
+        populateTalentSelect();
+        setupFiltering();
+        setupSearch();
+    }, 600);
 }
 
-// Display featured talent
 function displayFeaturedTalent() {
-    const featuredGrid = document.getElementById('featured-talent-grid');
-    if (!featuredGrid) return;
-    
-    const featuredTalent = TALENT_DATA.filter(talent => talent.featured);
-    
-    featuredGrid.innerHTML = featuredTalent.map(talent => 
-        createTalentCard(talent)
-    ).join('');
-    
-    // Add click events to featured talent cards
-    featuredGrid.querySelectorAll('.talent-card').forEach((card, index) => {
-        card.addEventListener('click', () => {
-            openTalentModal(featuredTalent[index]);
-        });
+    const grid = document.getElementById('featured-talent-grid');
+    if (!grid || typeof TALENT_DATA === 'undefined') return;
+    const featured = TALENT_DATA.filter(t => t.featured);
+    grid.innerHTML = featured.map(t => createTalentCard(t)).join('');
+    grid.querySelectorAll('.talent-card').forEach(card => {
+        const id = parseInt(card.dataset.id);
+        const talent = TALENT_DATA.find(t => t.id === id);
+        card.addEventListener('click', (e) => { if (e.target.closest('.btn')) return; if (talent) openTalentModal(talent); });
+        const viewBtn = card.querySelector('.view-details-btn');
+        if (viewBtn && talent) viewBtn.addEventListener('click', (e) => { e.stopPropagation(); openTalentModal(talent); });
     });
 }
 
-// Display all talent
 function displayAllTalent() {
-    const talentGrid = document.getElementById('talent-grid');
-    if (!talentGrid) return;
-    
-    const filteredTalent = filterTalent(TALENT_DATA, currentFilter, currentSearchTerm);
-    
-    talentGrid.innerHTML = filteredTalent.length > 0 
-        ? filteredTalent.map(talent => createTalentCard(talent)).join('')
-        : '<p class="no-results">No talent found matching your criteria.</p>';
-    
-    // Add click events to talent cards
-    talentGrid.querySelectorAll('.talent-card').forEach((card, index) => {
-        card.addEventListener('click', () => {
-            openTalentModal(filteredTalent[index]);
-        });
+    const grid = document.getElementById('talent-grid');
+    if (!grid || typeof TALENT_DATA === 'undefined') return;
+    const filtered = filterTalent(TALENT_DATA, currentFilter, currentSearchTerm);
+    grid.innerHTML = filtered.length > 0 ? filtered.map(t => createTalentCard(t)).join('') : '<p class="no-results">No talent found matching your criteria.</p>';
+    grid.querySelectorAll('.talent-card').forEach(card => {
+        const id = parseInt(card.dataset.id);
+        const talent = TALENT_DATA.find(t => t.id === id);
+        card.addEventListener('click', (e) => { if (e.target.closest('.btn')) return; if (talent) openTalentModal(talent); });
+        const viewBtn = card.querySelector('.view-details-btn');
+        if (viewBtn && talent) viewBtn.addEventListener('click', (e) => { e.stopPropagation(); openTalentModal(talent); });
     });
 }
 
-// Populate talent select in booking form
 function populateTalentSelect() {
-    const talentSelect = document.getElementById('talent-interest');
-    if (!talentSelect) return;
-    
-    // Add talent options
+    const select = document.getElementById('talent-interest');
+    if (!select || typeof TALENT_DATA === 'undefined') return;
+    while (select.options.length > 1) select.remove(1);
     TALENT_DATA.forEach(talent => {
         const option = document.createElement('option');
         option.value = talent.name;
         option.textContent = talent.name;
-        talentSelect.appendChild(option);
+        select.appendChild(option);
     });
 }
 
-// Setup filtering functionality
 function setupFiltering() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            // Update filter and display
-            currentFilter = button.dataset.filter;
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilter = btn.dataset.filter;
             displayAllTalent();
         });
     });
 }
 
-// Setup search functionality
 function setupSearch() {
-    const searchInput = document.getElementById('talent-search');
-    if (!searchInput) return;
-    
-    const debouncedSearch = debounce((e) => {
-        currentSearchTerm = e.target.value;
+    const input = document.getElementById('talent-search');
+    if (!input) return;
+    input.addEventListener('input', debounce((e) => {
+        currentSearchTerm = e.target.value.toLowerCase();
         displayAllTalent();
-    }, 300);
-    
-    searchInput.addEventListener('input', debouncedSearch);
+    }, 300));
 }
 
+function filterTalent(talent, category, searchTerm) {
+    return talent.filter(t => {
+        const matchesCategory = category === 'all' || t.category === category;
+        const matchesSearch = !searchTerm || t.name.toLowerCase().includes(searchTerm);
+        return matchesCategory && matchesSearch;
+    });
+}
