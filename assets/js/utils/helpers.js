@@ -64,7 +64,7 @@ function initMobileNav() {
 }
 function createTalentCard(talent) {
     return '<div class="talent-card" data-category="'+talent.category+'" data-name="'+talent.name.toLowerCase()+'" data-id="'+talent.id+'">'+
-        '<div class="talent-image-wrapper"><img src="'+talent.image+'" alt="'+talent.name+'" class="talent-image" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500/1a1a1a/D4AF37?text='+encodeURIComponent(talent.name)+''"></div>'+
+        '<div class="talent-image-wrapper"><img src="'+talent.image+'" alt="'+talent.name+'" class="talent-image" loading="lazy" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/1a1a1a/D4AF37?text='+encodeURIComponent(talent.name)+''"></div>'+
         '<div class="talent-info"><h3 class="talent-name">'+talent.name+'</h3><div class="talent-category">'+formatCategory(talent.category)+'</div><p class="talent-bio">'+talent.bio+'</p>'+
         '<div class="talent-stats"><div class="stat-item"><div class="stat-value">'+talent.stats.projects+'</div><div class="stat-label">Projects</div></div>'+
         '<div class="stat-item"><div class="stat-value">'+talent.stats.awards+'</div><div class="stat-label">Awards</div></div>'+
@@ -74,7 +74,7 @@ function createTalentCard(talent) {
         '<a href="contact.html?talent='+encodeURIComponent(talent.name)+'" class="btn btn-book-now">Book Now</a></div></div></div>';
 }
 function createModalContent(talent) {
-    return '<div class="modal-talent-content"><div class="modal-header"><img src="'+talent.image+'" alt="'+talent.name+'" class="modal-image" onerror="this.src='https://via.placeholder.com/400x500/1a1a1a/D4AF37?text='+encodeURIComponent(talent.name)+''">'+
+    return '<div class="modal-talent-content"><div class="modal-header"><img src="'+talent.image+'" alt="'+talent.name+'" class="modal-image" decoding="async" onerror="this.src='https://via.placeholder.com/400x500/1a1a1a/D4AF37?text='+encodeURIComponent(talent.name)+''">'+
         '<div class="modal-basic-info"><h2>'+talent.name+'</h2><div class="modal-category">'+formatCategory(talent.category)+'</div><p class="modal-bio">'+talent.bio+'</p>'+
         '<div class="modal-stats"><div class="modal-stat"><div class="modal-stat-value">'+talent.stats.projects+'</div><div class="modal-stat-label">Projects</div></div>'+
         '<div class="modal-stat"><div class="modal-stat-value">'+talent.stats.awards+'</div><div class="modal-stat-label">Awards</div></div>'+
