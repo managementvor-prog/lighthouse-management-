@@ -28,14 +28,14 @@ function initNavbar() {
     const navMenu = document.getElementById('nav-menu');
 
     hamburger?.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
+        const isOpen = navMenu.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
-            hamburger?.classList.remove('active');
             navMenu?.classList.remove('active');
+            hamburger?.setAttribute('aria-expanded', 'false');
         });
     });
 }
