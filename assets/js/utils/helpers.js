@@ -76,9 +76,10 @@ function showToast(message, type = 'success') {
 function initCelebrityPreview() {
     const params = new URLSearchParams(window.location.search);
     const talentId = params.get('talent');
-    if (!talentId || typeof talentData === 'undefined') return;
+    const data = typeof TALENT_DATA !== 'undefined' ? TALENT_DATA : (typeof talentData !== 'undefined' ? talentData : []);
+    if (!talentId || !data.length) return;
 
-    const talent = talentData.find(t => t.id == talentId);
+    const talent = data.find(t => t.id == talentId);
     if (!talent) return;
 
     const preview = document.getElementById('celebrity-preview');
