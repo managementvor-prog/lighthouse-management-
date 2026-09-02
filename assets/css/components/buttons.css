@@ -1,8 +1,16 @@
-/* Enhanced button styles */
+/* Premium Button Styles */
 .btn {
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
 }
 
 .btn::before {
@@ -12,17 +20,131 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transition: left 0.6s ease;
 }
 
 .btn:hover::before {
     left: 100%;
 }
 
+/* Primary CTA */
+.btn-primary {
+    background: transparent;
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    padding: 0.875rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+    background: var(--accent-gold);
+    color: var(--primary-dark);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Secondary */
+.btn-secondary {
+    background: var(--glass-bg);
+    color: var(--text-light);
+    border: 1px solid var(--glass-border);
+    padding: 0.875rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+/* BOOK NOW — Premium Gold */
+.btn-book-now {
+    background: linear-gradient(135deg, var(--accent-gold) 0%, #E8C766 50%, var(--accent-gold) 100%);
+    background-size: 200% 200%;
+    color: var(--primary-dark);
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4), 0 0 40px rgba(212, 175, 55, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.85rem;
+    animation: goldShimmer 3s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes goldShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.btn-book-now:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6), 0 0 60px rgba(212, 175, 55, 0.2);
+}
+
+.btn-book-now:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.pulse {
+    animation: goldShimmer 3s ease infinite, pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4), 0 0 40px rgba(212, 175, 55, 0.1); }
+    50% { box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6), 0 0 60px rgba(212, 175, 55, 0.2); }
+}
+
+/* Nav CTA */
+.nav-cta {
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+    color: var(--primary-dark) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+    color: var(--primary-dark) !important;
+}
+
+.nav-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-cta:hover::before {
+    left: 100%;
+}
+
+/* Loading State */
 .btn-loading {
     pointer-events: none;
-    opacity: 0.7;
+    opacity: 0.8;
+    color: transparent !important;
 }
 
 .btn-loading::after {
@@ -34,9 +156,9 @@
     left: 50%;
     margin: -10px 0 0 -10px;
     border: 2px solid transparent;
-    border-top: 2px solid currentColor;
+    border-top: 2px solid var(--primary-dark);
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
@@ -44,3 +166,22 @@
     100% { transform: rotate(360deg); }
 }
 
+/* Filter Buttons */
+.filter-btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-gray);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--accent-gold);
+    color: var(--primary-dark);
+    border-color: var(--accent-gold);
+    font-weight: 600;
+}
