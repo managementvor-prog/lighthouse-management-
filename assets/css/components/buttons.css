@@ -185,3 +185,16 @@
     border-color: var(--accent-gold);
     font-weight: 600;
 }
+
+/* Specialty Tags */
+.specialty-tag {
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    color: var(--accent-gold);
+    padding: 0.25rem 0.6rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
