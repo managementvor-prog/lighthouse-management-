@@ -319,3 +319,24 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; font-weight: 60
 }
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent-gold); outline-offset: 2px; }
 ::selection { background: rgba(212, 175, 55, 0.3); color: var(--text-light); }
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+}
+.hero, .navbar, .page-header, .about-hero, .featured-talent {
+    content-visibility: visible;
+}
+.talent-card, .value-card, .team-card, .about-stat-item {
+    contain: layout style paint;
+}
+img, .talent-image, .modal-image, .about-story-image img, .team-card img {
+    decoding: async;
+}
+.talent-card:hover, .value-card:hover, .team-card:hover {
+    will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+    .skeleton { animation: none !important; background: var(--secondary-dark); }
+}
