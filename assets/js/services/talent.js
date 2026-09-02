@@ -3,13 +3,12 @@ let currentFilter = 'all';
 let currentSearchTerm = '';
 
 function initializeTalentDisplay() {
-    setTimeout(() => {
-        displayFeaturedTalent();
-        displayAllTalent();
-        populateTalentSelect();
-        setupFiltering();
-        setupSearch();
-    }, 600);
+    // Render IMMEDIATELY - no artificial delay
+    displayFeaturedTalent();
+    displayAllTalent();
+    populateTalentSelect();
+    setupFiltering();
+    setupSearch();
 }
 
 function displayFeaturedTalent() {
@@ -17,13 +16,7 @@ function displayFeaturedTalent() {
     if (!grid || typeof TALENT_DATA === 'undefined') return;
     const featured = TALENT_DATA.filter(t => t.featured);
     grid.innerHTML = featured.map(t => createTalentCard(t)).join('');
-    grid.querySelectorAll('.talent-card').forEach(card => {
-        const id = parseInt(card.dataset.id);
-        const talent = TALENT_DATA.find(t => t.id === id);
-        card.addEventListener('click', (e) => { if (e.target.closest('.btn')) return; if (talent) openTalentModal(talent); });
-        const viewBtn = card.querySelector('.view-details-btn');
-        if (viewBtn && talent) viewBtn.addEventListener('click', (e) => { e.stopPropagation(); openTalentModal(talent); });
-    });
+    attachCardEvents(grid);
 }
 
 function displayAllTalent() {
@@ -31,6 +24,10 @@ function displayAllTalent() {
     if (!grid || typeof TALENT_DATA === 'undefined') return;
     const filtered = filterTalent(TALENT_DATA, currentFilter, currentSearchTerm);
     grid.innerHTML = filtered.length > 0 ? filtered.map(t => createTalentCard(t)).join('') : '<p class="no-results">No talent found matching your criteria.</p>';
+    attachCardEvents(grid);
+}
+
+function attachCardEvents(grid) {
     grid.querySelectorAll('.talent-card').forEach(card => {
         const id = parseInt(card.dataset.id);
         const talent = TALENT_DATA.find(t => t.id === id);
@@ -69,7 +66,7 @@ function setupSearch() {
     input.addEventListener('input', debounce((e) => {
         currentSearchTerm = e.target.value.toLowerCase();
         displayAllTalent();
-    }, 300));
+    }, 150)); // Faster debounce (was 300ms)
 }
 
 function filterTalent(talent, category, searchTerm) {
