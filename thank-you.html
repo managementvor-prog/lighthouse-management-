@@ -4,91 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You | Lighthouse Management</title>
-    <meta name="description" content="Your booking request has been received. We'll be in touch soon.">
+    <meta name="description" content="Your booking request has been received. Our team will contact you shortly.">
     <link rel="preload" href="assets/css/style.css" as="style">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
-    <link rel="dns-prefetch" href="https://res.cloudinary.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23D4AF37'/%3E%3Cpath d='M50 25 L50 65' stroke='%230A0A0A' stroke-width='4'/%3E%3Cpath d='M38 65 L62 65 L58 78 L42 78 Z' fill='%230A0A0A'/%3E%3C/svg%3E">
+    <meta http-equiv="refresh" content="5;url=/">
 </head>
 <body>
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
+            <a href="/" class="nav-logo">
                 <svg class="lighthouse-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="50" cy="50" r="45" fill="rgba(212,175,55,0.1)" stroke="var(--accent-gold)" stroke-width="1.5"/>
-  <path d="M50 20 L50 70" stroke="var(--accent-gold)" stroke-width="3" stroke-linecap="round"/>
-  <path d="M35 70 L65 70 L60 85 L40 85 Z" fill="var(--accent-gold)" opacity="0.8"/>
-  <path d="M42 70 L42 45 L58 45 L58 70" fill="none" stroke="var(--accent-gold)" stroke-width="2"/>
-  <path class="light-pulse" d="M50 20 L30 10 M50 20 L70 10 M50 20 L50 5" stroke="var(--accent-gold-light)" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-  <circle class="light-pulse" cx="50" cy="20" r="5" fill="var(--accent-gold-light)"/>
-  <path class="beam" d="M50 20 L20 35 M50 20 L80 35" stroke="var(--accent-gold)" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-</svg>
-                <div class="nav-logo-text">
-                    <h2>Lighthouse</h2>
-                    <span>Management</span>
-                </div>
+                    <circle cx="50" cy="50" r="45" fill="rgba(212,175,55,0.1)" stroke="var(--accent-gold)" stroke-width="1.5"/>
+                    <path d="M50 20 L50 70" stroke="var(--accent-gold)" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M35 70 L65 70 L60 85 L40 85 Z" fill="var(--accent-gold)" opacity="0.8"/>
+                    <path d="M42 70 L42 45 L58 45 L58 70" fill="none" stroke="var(--accent-gold)" stroke-width="2"/>
+                    <path class="light-pulse" d="M50 20 L30 10 M50 20 L70 10 M50 20 L50 5" stroke="var(--accent-gold-light)" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+                    <circle class="light-pulse" cx="50" cy="20" r="5" fill="var(--accent-gold-light)"/>
+                    <path class="beam" d="M50 20 L20 35 M50 20 L80 35" stroke="var(--accent-gold)" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+                </svg>
+                <div class="nav-logo-text"><h2>Lighthouse</h2><span>Management</span></div>
             </a>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html" class="nav-link ">Home</a></li>
-                <li><a href="talent.html" class="nav-link ">Talent</a></li>
-                <li><a href="about.html" class="nav-link ">About</a></li>
-                <li><a href="contact.html" class="nav-link ">Contact</a></li>
-                <li><a href="contact.html" class="nav-cta">Book Now</a></li>
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/talent" class="nav-link">Talent</a></li>
+                <li><a href="/about" class="nav-link">About</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+                <li><a href="/contact" class="nav-cta">Book Now</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <div class="hamburger" id="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
         </div>
     </nav>
-    <div class="thank-you-container">
-        <div class="thank-you-content">
-            <div class="thank-you-icon reveal">&#10003;</div>
-            <h1 class="reveal reveal-delay-1">Thank You!</h1>
-            <p class="reveal reveal-delay-2">Your booking request has been successfully submitted. Our team will review your inquiry and get back to you within 24-48 hours.</p>
-            <div class="reveal reveal-delay-3" style="margin-top:2rem">
-                <a href="index.html" class="btn btn-primary">Back to Home</a>
-                <a href="talent.html" class="btn btn-secondary" style="margin-left:1rem">Browse More Talent</a>
+
+    <section class="hero" style="min-height:80vh;display:flex;align-items:center;justify-content:center">
+        <div class="hero-content" style="text-align:center;max-width:600px">
+            <div style="width:80px;height:80px;margin:0 auto 2rem;border-radius:50%;background:linear-gradient(135deg,var(--accent-gold),var(--accent-gold-light));display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(212,175,55,0.3)" class="reveal">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary-dark)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
             </div>
+            <h1 class="hero-title reveal reveal-delay-1">Thank You</h1>
+            <p class="hero-subtitle reveal reveal-delay-2" style="margin-bottom:2rem">Your booking request has been received. Our team will review your inquiry and contact you within 24 hours.</p>
+            <div class="reveal reveal-delay-3">
+                <a href="/" class="btn btn-primary">Return Home</a>
+                <a href="/talent" class="btn btn-secondary" style="margin-left:1rem">Browse More Talent</a>
+            </div>
+            <p style="color:var(--text-gray);margin-top:2rem;font-size:0.9rem" class="reveal reveal-delay-4">You will be redirected automatically in 5 seconds...</p>
         </div>
-    </div>
+        <div class="hero-background"><div class="glass-orb"></div><div class="glass-orb"></div><div class="glass-orb"></div></div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
                     <div style="display:flex;align-items:center;gap:0.5rem">
                         <svg width="28" height="28" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="45" fill="rgba(212,175,55,0.1)" stroke="#D4AF37" stroke-width="2"/><path d="M50 20 L50 70" stroke="#D4AF37" stroke-width="3" stroke-linecap="round"/><path d="M35 70 L65 70 L60 85 L40 85 Z" fill="#D4AF37" opacity="0.8"/></svg>
-                        <div>
-                            <h3>Lighthouse Management</h3>
-                            <p>Premier Talent Representation</p>
-                        </div>
+                        <div><h3>Lighthouse Management</h3><p>Premier Talent Representation</p></div>
                     </div>
                 </div>
                 <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="talent.html">Talent</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
+                    <a href="/">Home</a><a href="/talent">Talent</a><a href="/about">About</a><a href="/contact">Contact</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Lighthouse Management. All rights reserved.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2024 Lighthouse Management. All rights reserved.</p></div>
         </div>
     </footer>
-    <div class="toast-container" id="toast-container"></div>
-    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-    </button>
+
     <script src="assets/js/config/settings.js"></script>
     <script src="assets/js/utils/helpers.js"></script>
-    <script src="assets/js/components/modal.js"></script>
-    <script src="assets/js/services/talent.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 </html>
